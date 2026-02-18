@@ -52,9 +52,9 @@ function database_table($query) {
     return pg_fetch_all(database_query($query));
 }
 
-function html_template($view, $data = [], $template = 'main') {
+function html_template($view, $data = [], $template = 'base') {
     extract($data);
-    require_once 'template' . DIRECTORY_SEPARATOR . $template . '.php';
+    require_once 'templates' . DIRECTORY_SEPARATOR . $template . '.php';
 }
 
 function http_redirect($url, $flash = null) {
