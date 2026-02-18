@@ -1,11 +1,5 @@
 <section>
-    <header>{{ name }}</header>
+    <header><?php echo $name; ?></header>
 </section>
-
-{% for error in errors %}
-    <section>
-        <mark>{{ error }}</mark>
-    </section>
-{% endfor %}
-
-{% block content %}{% endblock %}
+<?php require_once __DIR__ . DIRECTORY_SEPARATOR . 'errors.php'; ?>
+<?php require_once __DIR__ . DIRECTORY_SEPARATOR . 'empty.php'; ?>
