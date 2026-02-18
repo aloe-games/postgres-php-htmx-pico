@@ -1,10 +1,9 @@
-FROM python:3
+FROM php:apache
 
-ENV PYTHONUNBUFFERED True
+RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y libpq-dev
+RUN docker-php-ext-install pgsql && docker-php-ext-enable pgsql
+
+WORKDIR /var/www/html
 COPY ./ ./
-
-RUN pip install -r requirements.txt
-
-CMD exec gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 0 app:app
