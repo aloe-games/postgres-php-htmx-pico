@@ -1,4 +1,4 @@
 create table users (
-    id serial,
+    id serial primary key,
     name text
 );
