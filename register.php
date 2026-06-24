@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (strlen($name) > 0) {
         add_user($name);
     } else {
-        $errors[] = "Name is required";
+        $errors[] = 'Name is required';
     }
 }
 
