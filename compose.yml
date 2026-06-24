@@ -7,7 +7,7 @@ services:
       - "8080:8080"
     environment:
       - PORT=8080
-      - DATABASE_URL="host=db port=5432 dbname=app user=user password=password"
+      - DATABASE_URL=host=db port=5432 dbname=app user=user password=password
   db:
     image: postgres
     volumes:
