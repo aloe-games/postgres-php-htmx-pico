@@ -2,7 +2,7 @@
     <header><?php echo $name; ?></header>
 </section>
 
-<?php if (isset($errors) && count($errors)): ?>
+<?php if (isset($errors)): ?>
     <?php foreach ($errors as $error): ?>
         <section>
             <mark><?php echo $error; ?></mark>

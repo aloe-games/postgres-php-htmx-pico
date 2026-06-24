@@ -5,7 +5,9 @@ services:
       - ./:/var/www/html
     ports:
       - "8080:8080"
-    env_file: .env
+    environment:
+      - PORT=8080
+      - DATABASE_URL="host=db port=5432 dbname=app user=user password=password"
   db:
     image: postgres
     volumes:
