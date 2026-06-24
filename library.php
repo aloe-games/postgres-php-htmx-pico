@@ -41,24 +41,24 @@ function database_handle()
     return pg_connect(getenv('DATABASE_URL'));
 }
 
-function database_query($query)
+function database_query($query, $params = [])
 {
-    return pg_query(database_handle(), $query);
+    return pg_query_params(database_handle(), $query, $params);
 }
 
-function database_scalar($query)
+function database_scalar($query, $params = [])
 {
-    return pg_fetch_array(database_query($query))[0];
+    return pg_fetch_array(database_query($query, $params))[0];
 }
 
-function database_row($query)
+function database_row($query, $params = [])
 {
-    return pg_fetch_assoc(database_query($query));
+    return pg_fetch_assoc(database_query($query, $params));
 }
 
-function database_table($query)
+function database_table($query, $params = [])
 {
-    return pg_fetch_all(database_query($query));
+    return pg_fetch_all(database_query($query, $params));
 }
 
 function html_template($view, $data = [], $template = 'base')
